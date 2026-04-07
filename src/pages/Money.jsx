@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { User } from '../../User.js'; // Убедись, что путь к файлу User.js верный
+import { User } from '../../User.js'; 
 
 export default function Money({ currentUser, setCurrentUser }) {
   const [amount, setAmount] = useState('');
   const [error, setError] = useState('');
 
-  // Если вдруг зашли без авторизации (хотя роут должен быть приватным)
+  
   if (!currentUser) {
     return (
       <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
@@ -17,25 +17,24 @@ export default function Money({ currentUser, setCurrentUser }) {
     );
   }
 
-  // Обработчик операций (Пополнение / Снятие)
   function handleTransaction(type) {
     setError('');
     const value = parseFloat(amount);
 
-    // Валидация ввода
+   
     if (isNaN(value) || value <= 0) {
       setError('Введите корректную сумму больше нуля');
       return;
     }
 
-    // Твой текущий баланс (если его нет в объекте, ставим 1000 по умолчанию)
+  
     const currentBalance = currentUser.balance ?? 1000;
     let newBalance = currentBalance;
 
     if (type === 'plus') {
       newBalance += value;
     } else if (type === 'minus') {
-      // Проверка: нельзя снять больше, чем есть
+    
       if (value > currentBalance) {
         setError('Недостаточно средств на балансе!');
         return;
@@ -43,9 +42,7 @@ export default function Money({ currentUser, setCurrentUser }) {
       newBalance -= value;
     }
 
-    // 1. Обновляем баланс в localStorage для всех пользователей
-    // (Поскольку метод updateBalance у тебя может быть не написан в User.js, 
-    // давай обновим прямо здесь через localStorage)
+   
     const allUsers = User.getAll();
     const updatedUsers = allUsers.map(u => {
       if (u.username === currentUser.username) {

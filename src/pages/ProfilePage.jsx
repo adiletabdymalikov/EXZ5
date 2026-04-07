@@ -4,7 +4,7 @@ import { User } from '../../User.js'
 export function ProfilePage({ currentUser, setCurrentUser }) {
   const navigate = useNavigate()
 
-  // Используем твой метод из User.js для удаления
+  
   function handleDeleteAccount() {
     if (!confirm('Вы уверены, что хотите удалить кошелек? Все данные будут стерты.')) return
     User.deleteUser(currentUser.username)
@@ -16,7 +16,7 @@ export function ProfilePage({ currentUser, setCurrentUser }) {
 
   return (
     <div className="container py-4">
-      {/* Шапка профиля */}
+     
       <div className="text-center mb-4">
         <div
           className="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center fw-bold shadow-sm mb-3"
@@ -29,7 +29,7 @@ export function ProfilePage({ currentUser, setCurrentUser }) {
       </div>
 
       <div className="row justify-content-center g-4">
-        {/* Карточка баланса (Кошелек) */}
+       
         <div className="col-md-5">
           <div className="card border-0 shadow-sm p-4 bg-primary text-white" style={{ borderRadius: 24 }}>
             <div className="d-flex justify-content-between align-items-start mb-4">
@@ -70,7 +70,7 @@ export function ProfilePage({ currentUser, setCurrentUser }) {
           </div>
         </div>
 
-        {/* Личные данные */}
+     
         <div className="col-md-5">
           <div className="card border-0 shadow-sm p-4" style={{ borderRadius: 24 }}>
             <h6 className="fw-bold mb-4 text-muted small text-uppercase">Информация об аккаунте</h6>
