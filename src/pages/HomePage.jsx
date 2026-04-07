@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 export function HomePage({ currentUser }) {
-  // Заглушка для транзакций (показываем, только если вошли)
+
   const transactions = [
     { id: 1, title: 'Пополнение', desc: 'Перевод по номеру', amount: '+ 2 500 ₽', icon: 'bi-plus-circle-fill', color: 'success' },
     { id: 2, title: 'Магазин', desc: 'Продукты', amount: '- 1 230 ₽', icon: 'bi-cart-fill', color: 'danger' },
@@ -9,7 +9,7 @@ export function HomePage({ currentUser }) {
 
   return (
     <div className="min-vh-100 bg-light">
-      {/* HEADER */}
+
       <div className="bg-white border-bottom shadow-sm px-4 py-3 sticky-top">
         <div className="container d-flex justify-content-between align-items-center" style={{ maxWidth: '500px' }}>
           <div className="d-flex align-items-center">
@@ -30,9 +30,9 @@ export function HomePage({ currentUser }) {
       <div className="container py-4" style={{ maxWidth: '500px' }}>
         {currentUser ? (
           <>
-            {/* КАРТА БАЛАНСА */}
-            <div className="p-4 mb-4 text-white shadow-lg" 
-                 style={{ borderRadius: '24px', background: 'linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%)' }}>
+
+            <div className="p-4 mb-4 text-white shadow-lg"
+              style={{ borderRadius: '24px', background: 'linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%)' }}>
               <div className="d-flex justify-content-between mb-4">
                 <div>
                   <p className="opacity-75 small mb-1 fw-medium text-uppercase">Доступный остаток</p>
@@ -46,7 +46,6 @@ export function HomePage({ currentUser }) {
               </div>
             </div>
 
-            {/* ACTION BAR */}
             <div className="row g-2 text-center mb-5">
               <div className="col-4">
                 <Link to="/Money" className="text-decoration-none">
@@ -72,7 +71,7 @@ export function HomePage({ currentUser }) {
               </div>
             </div>
 
-            {/* СПИСОК ОПЕРАЦИЙ */}
+
             <h6 className="fw-bold mb-3">Последние операции</h6>
             <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
               <div className="card-body p-0">
@@ -92,32 +91,32 @@ export function HomePage({ currentUser }) {
             </div>
           </>
         ) : (
-          /* ЭКРАН ДЛЯ ГОСТЕЙ + ТЕСТОВЫЕ АККАУНТЫ */
+
           <div className="text-center py-5">
             <div className="bg-primary bg-opacity-10 d-inline-block p-4 rounded-circle mb-4">
-               <i className="bi bi-wallet2 text-primary display-4"></i>
+              <i className="bi bi-wallet2 text-primary display-4"></i>
             </div>
             <h2 className="fw-bold mb-3">Мобильный Банк</h2>
             <p className="text-muted px-4 mb-5">Управляйте своими финансами в одно касание.</p>
-            
+
             <div className="d-grid gap-3 px-4 mb-5">
-               <Link className="btn btn-primary btn-lg rounded-pill fw-bold py-3 shadow" to="/login">Войти в кабинет</Link>
-               <Link className="btn btn-outline-primary btn-lg rounded-pill fw-bold py-3" to="/register">Регистрация</Link>
+              <Link className="btn btn-primary btn-lg rounded-pill fw-bold py-3 shadow" to="/login">Войти в кабинет</Link>
+              <Link className="btn btn-outline-primary btn-lg rounded-pill fw-bold py-3" to="/register">Регистрация</Link>
             </div>
 
-            {/* ТЕСТОВЫЕ АККАУНТЫ — ДИЗАЙНЕРСКИЙ СПИСОК */}
+
             <div className="mx-4 p-4 bg-white border-0 shadow-sm rounded-4 text-start">
               <div className="fw-bold mb-3 d-flex align-items-center">
                 <i className="bi bi-key-fill text-warning me-2"></i> Быстрый доступ:
               </div>
-              
+
               <div className="small border-bottom pb-2 mb-2">
                 <div className="text-dark fw-bold">admin@example.com</div>
                 <div className="text-muted d-flex justify-content-between">
                   <span>Пароль: 123456</span> <span>PIN: 1234</span>
                 </div>
               </div>
-              
+
               <div className="small border-bottom pb-2 mb-2">
                 <div className="text-dark fw-bold">user@example.com</div>
                 <div className="text-muted d-flex justify-content-between">
@@ -127,7 +126,7 @@ export function HomePage({ currentUser }) {
 
               <div className="small text-muted d-flex justify-content-between">
                 <span>student@example.com</span>
-                <span>PIN: 1234</span>
+               
               </div>
             </div>
           </div>
