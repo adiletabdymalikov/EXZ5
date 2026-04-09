@@ -13,24 +13,23 @@ export function Navbar({ currentUser, setCurrentUser }) {
     }
   }
 
- 
   if (!currentUser) return null;
 
-  
   const isActive = (path) => location.pathname === path ? 'text-primary' : 'text-muted';
 
   return (
     <>
-      
-      <div className="bg-white border-bottom px-3 py-2 sticky-top d-lg-none">
-        <div className="d-flex justify-content-between align-items-center">
-          {location.pathname !== '/' ? (
-            <button onClick={() => navigate(-1)} className="btn btn-link text-dark p-0">
-              <i className="bi bi-chevron-left fs-4"></i>
-            </button>
-          ) : (
-            <div style={{ width: 24 }}></div> 
-          )}
+    
+      <div className="bg-white border-bottom px-3 py-2 sticky-top shadow-sm">
+        <div className="container d-flex justify-content-between align-items-center" style={{ maxWidth: '800px' }}>
+        
+          <div style={{ width: 40 }}>
+            {location.pathname !== '/' && (
+              <button onClick={() => navigate(-1)} className="btn btn-link text-dark p-0 border-0 shadow-none">
+                <i className="bi bi-chevron-left fs-4"></i>
+              </button>
+            )}
+          </div>
           
           <span className="fw-bold small text-uppercase" style={{ letterSpacing: '1px' }}>
             {location.pathname === '/' ? 'Мой Кошелек' : 
@@ -38,39 +37,42 @@ export function Navbar({ currentUser, setCurrentUser }) {
              location.pathname === '/Money' ? 'Финансы' : 'Раздел'}
           </span>
 
-          <button onClick={handleLogout} className="btn btn-link text-danger p-0">
-            <i className="bi bi-box-arrow-right fs-4"></i>
-          </button>
+          <div style={{ width: 40 }} className="text-end">
+            <button onClick={handleLogout} className="btn btn-link text-danger p-0 border-0 shadow-none">
+              <i className="bi bi-box-arrow-right fs-4"></i>
+            </button>
+          </div>
         </div>
       </div>
 
-     
-      <div className="fixed-bottom bg-white border-top d-flex justify-content-around align-items-center py-2 shadow-lg d-lg-none" 
-           style={{ height: '65px', zIndex: 1050 }}>
-        
-        <Link to="/" className={`text-decoration-none text-center ${isActive('/')}`}>
-          <i className={`bi ${location.pathname === '/' ? 'bi-house-door-fill' : 'bi-house-door'} fs-4`}></i>
-          <div style={{ fontSize: '10px' }}>Главная</div>
-        </Link>
+      <div className="fixed-bottom bg-white border-top shadow-lg" 
+           style={{ height: '70px', zIndex: 1050 }}>
+        <div className="container h-100 d-flex justify-content-around align-items-center" style={{ maxWidth: '600px' }}>
+          
+          <Link to="/" className={`text-decoration-none text-center px-3 ${isActive('/')}`}>
+            <i className={`bi ${location.pathname === '/' ? 'bi-house-door-fill' : 'bi-house-door'} fs-3`}></i>
+            <div style={{ fontSize: '11px', fontWeight: '500' }}>Главная</div>
+          </Link>
 
-        <Link to="/Money" className={`text-decoration-none text-center ${isActive('/Money')}`}>
-          <i className={`bi ${location.pathname === '/Money' ? 'bi-wallet2' : 'bi-wallet2'} fs-4`}></i>
-          <div style={{ fontSize: '10px' }}>Платежи</div>
-        </Link>
+          <Link to="/Money" className={`text-decoration-none text-center px-3 ${isActive('/Money')}`}>
+            <i className={`bi ${location.pathname === '/Money' ? 'bi-wallet2' : 'bi-wallet2'} fs-3`}></i>
+            <div style={{ fontSize: '11px', fontWeight: '500' }}>Платежи</div>
+          </Link>
 
-        <Link to="/dashboard" className={`text-decoration-none text-center ${isActive('/dashboard')}`}>
-          <i className={`bi ${location.pathname === '/dashboard' ? 'bi-grid-fill' : 'bi-grid'} fs-4`}></i>
-          <div style={{ fontSize: '10px' }}>Сервисы</div>
-        </Link>
+          <Link to="/dashboard" className={`text-decoration-none text-center px-3 ${isActive('/dashboard')}`}>
+            <i className={`bi ${location.pathname === '/dashboard' ? 'bi-grid-fill' : 'bi-grid'} fs-3`}></i>
+            <div style={{ fontSize: '11px', fontWeight: '500' }}>Сервисы</div>
+          </Link>
 
-        <Link to="/profile" className={`text-decoration-none text-center ${isActive('/profile')}`}>
-          <i className={`bi ${location.pathname === '/profile' ? 'bi-person-fill' : 'bi-person'} fs-4`}></i>
-          <div style={{ fontSize: '10px' }}>Профиль</div>
-        </Link>
+          <Link to="/profile" className={`text-decoration-none text-center px-3 ${isActive('/profile')}`}>
+            <i className={`bi ${location.pathname === '/profile' ? 'bi-person-fill' : 'bi-person'} fs-3`}></i>
+            <div style={{ fontSize: '11px', fontWeight: '500' }}>Профиль</div>
+          </Link>
+        </div>
       </div>
 
-     
-      <div style={{ height: '65px' }} className="d-lg-none"></div>
+      
+      <div style={{ height: '80px' }}></div>
     </>
   )
 }
